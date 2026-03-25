@@ -1,0 +1,14 @@
+{
+  "name": "agrilinked",
+  "version": "1.0.0",
+  "description": "Professional Network for Agriculture - connecting farmers and laborers",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/server.js",
+    "client": "npm run dev --prefix client",
+    "install:all": "npm install --prefix server && npm install --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

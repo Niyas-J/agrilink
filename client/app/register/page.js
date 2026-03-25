@@ -90,30 +90,30 @@ export default function Register() {
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-2">
               <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
-              <input type="text" name="name" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none" placeholder="John Doe" onChange={handleChange} />
+              <input type="text" name="name" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none bg-white text-slate-900 placeholder:text-slate-400" placeholder="John Doe" onChange={handleChange} />
             </div>
             <div className="col-span-1">
               <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
-              <input type="email" name="email" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none" placeholder="john@example.com" onChange={handleChange} />
+              <input type="email" name="email" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none bg-white text-slate-900 placeholder:text-slate-400" placeholder="john@example.com" onChange={handleChange} />
             </div>
             <div className="col-span-1">
               <label className="block text-sm font-medium text-slate-700 mb-1">Phone</label>
-              <input type="text" name="phone" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none" placeholder="+1234567890" onChange={handleChange} />
+              <input type="text" name="phone" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none bg-white text-slate-900 placeholder:text-slate-400" placeholder="+1234567890" onChange={handleChange} />
             </div>
             <div className="col-span-2">
               <label className="block text-sm font-medium text-slate-700 mb-1">Password</label>
-              <input type="password" name="password" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none" placeholder="••••••••" onChange={handleChange} />
+              <input type="password" name="password" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none bg-white text-slate-900 placeholder:text-slate-400" placeholder="••••••••" onChange={handleChange} />
             </div>
             
             {formData.role === 'laborer' && (
               <>
                 <div className="col-span-1">
                   <label className="block text-sm font-medium text-slate-700 mb-1">Experience (years)</label>
-                  <input type="number" name="experience" min="0" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none" placeholder="3" onChange={handleChange} />
+                  <input type="number" name="experience" min="0" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none bg-white text-slate-900 placeholder:text-slate-400" placeholder="3" onChange={handleChange} />
                 </div>
                 <div className="col-span-2">
                   <label className="block text-sm font-medium text-slate-700 mb-1">Skills (comma separated)</label>
-                  <input type="text" name="skills" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none" placeholder="Harvesting, Plowing" onChange={handleChange} />
+                  <input type="text" name="skills" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none bg-white text-slate-900 placeholder:text-slate-400" placeholder="Harvesting, Plowing" onChange={handleChange} />
                 </div>
               </>
             )}

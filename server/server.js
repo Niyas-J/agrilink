@@ -16,15 +16,27 @@ const io = new Server(server, {
   }
 });
 
-// Middleware
-app.use(express.json({ extended: false }));
-app.use(cors());
+// CORS — allow all localhost origins (dev)
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (curl, mobile apps) or any localhost origin
+    if (!origin || /^http:\/\/localhost(:\d+)?$/.test(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+
+app.use(cors(corsOptions)); // Handles preflight OPTIONS automatically
+app.use(express.json());
 
 // Connect DB (we catch error globally or use mock connection for MVP if env missing)
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/agrilinked', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('MongoDB Connected'))
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/agrilinked')
+  .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log('MongoDB connection error:', err));
 
 // Define Routes
@@ -49,6 +61,6 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 server.listen(PORT, () => console.log(`Server started on port ${PORT}`));

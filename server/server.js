@@ -59,11 +59,13 @@ const connectDB = async () => {
       
       let admin = await User.findOne({ email: 'recruiter@agrilinked.com' });
       if (!admin) {
+        const bcrypt = require('bcryptjs');
+        const hashed = await bcrypt.hash('password123', 10);
         admin = await User.create({
           role: 'farmer',
           name: 'AgriLinked Careers',
           email: 'recruiter@agrilinked.com',
-          password: 'password123',
+          password: hashed,
           phone: '+91 8217469646'
         });
       }

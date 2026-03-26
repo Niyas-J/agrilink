@@ -34,14 +34,14 @@ export default function FeedLayout({ children }) {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-[225px_minmax(0,1fr)_315px] gap-6 max-w-[1128px] mx-auto">
       {/* Left Sidebar */}
-      <div className="hidden lg:block lg:col-span-1">
+      <div className="hidden lg:block">
         <SidebarProfile user={user} />
       </div>
 
       {/* Main Feed Content */}
-      <div className="lg:col-span-2">
+      <div className="w-full max-w-[600px] mx-auto lg:max-w-none">
         {React.Children.map(children, child => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child, { user });
@@ -51,7 +51,7 @@ export default function FeedLayout({ children }) {
       </div>
 
       {/* Right Sidebar */}
-      <div className="hidden lg:block lg:col-span-1">
+      <div className="hidden lg:block">
         <RightSidebar />
       </div>
     </div>
